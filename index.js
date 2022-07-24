@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -9,7 +10,7 @@ app.use(express.json())
 app.use(cors())
 
 mongoose.connect(
-  "mongodb+srv://deep:newPassword12345@cluster0.ipdw5k5.mongodb.net/billsData?retryWrites=true&w=majority",
+  process.env.DB_URL,
   {
     useNewUrlParser: true,
   }

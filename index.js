@@ -9,6 +9,7 @@ const BillsModel = require('./models/Bills');
 app.use(express.json())
 app.use(cors())
 
+const port = process.env.port || 5000;
 mongoose.connect(
   process.env.DB_URL,
   {
@@ -78,6 +79,6 @@ app.put('/update/:id', async (req, res) => {
   );
 })
 
-app.listen(5001, () => {
-    console.log('Server running on port 5001')
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
 })
